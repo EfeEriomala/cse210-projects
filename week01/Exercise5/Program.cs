@@ -2,13 +2,13 @@ using System;
 
 class Program
 {
-    // Function 1: DisplayWelcome
+    // DisplayWelcome
     static void DisplayWelcome()
     {
         Console.WriteLine("Welcome to the Program!");
     }
 
-    // Function 2: PromptUserName
+    // PromptUserName
     static string PromptUserName()
     {
         Console.Write("Please enter your name: ");
@@ -16,7 +16,7 @@ class Program
         return name;
     }
 
-    // Function 3: PromptUserNumber
+    // PromptUserNumber
     static int PromptUserNumber()
     {
         Console.Write("Please enter your favorite number: ");
@@ -24,14 +24,14 @@ class Program
         return number;
     }
 
-    // Function 4: SquareNumber
+    // SquareNumber
     static int SquareNumber(int number)
     {
         int square = number * number;
         return square;
     }
 
-    // Function 5: DisplayResult
+    // DisplayResult
     static void DisplayResult(string name, int squaredNumber)
     {
         Console.WriteLine($"{name}, the square of your number is {squaredNumber}");
