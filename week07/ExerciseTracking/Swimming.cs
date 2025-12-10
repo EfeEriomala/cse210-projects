@@ -1,37 +1,28 @@
-using System;
-
-public class Activity
+public class Swimming : Activity
 {
-    private DateTime _date;
-    private int _lengthMinutes;
+    private int _laps;
 
-    public Activity(DateTime date, int lengthMinutes)
+    public Swimming(DateTime date, int lengthMinutes, int laps)
+        : base(date, lengthMinutes)
     {
-        _date = date;
-        _lengthMinutes = lengthMinutes;
+        _laps = laps;
     }
 
-    public DateTime GetDate() => _date;
-    public int GetLengthMinutes() => _lengthMinutes;
-
-    public virtual double GetDistance()
+    public override double GetDistance()
     {
-        throw new NotImplementedException("GetDistance must be overridden.");
+        double meters = _laps * 50;
+        double kilometers = meters / 1000;
+        double miles = kilometers * 0.62;
+        return miles;
     }
 
-    public virtual double GetSpeed()
+    public override double GetSpeed()
     {
-        throw new NotImplementedException("GetSpeed must be overridden.");
+        return (GetDistance() / GetLengthMinutes()) * 60;
     }
 
-    public virtual double GetPace()
+    public override double GetPace()
     {
-        throw new NotImplementedException("GetPace must be overridden.");
-    }
-
-    public virtual string GetSummary()
-    {
-        return $"{_date:dd MMM yyyy} {this.GetType().Name} ({_lengthMinutes} min) - " +
-               $"Distance: {GetDistance():0.00} miles, Speed: {GetSpeed():0.00} mph, Pace: {GetPace():0.00} min per mile";
+        return GetLengthMinutes() / GetDistance();
     }
 }
